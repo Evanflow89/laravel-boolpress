@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h1>Blog</h1>
+    <base-header />
+    <base-main />
+    <base-footer />
     <ul>
       <li v-for="post in posts" key="post.slug">
         {{ post.title }}
@@ -10,12 +12,21 @@
 </template>
 
 <script>
+import BaseHeader from "../components/macro/BaseHeader.vue";
+import BaseMain from "../components/macro/BaseMain.vue";
+import BaseFooter from "../components/macro/BaseFooter.vue";
+
 export default {
   name: "App",
   data() {
     return {
       posts: [],
     };
+  },
+  components: {
+    BaseHeader,
+    BaseMain,
+    BaseFooter,
   },
   created() {
     axios
