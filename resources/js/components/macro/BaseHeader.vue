@@ -5,7 +5,9 @@
         <div class="col-6">
           <h1>Boolpress</h1>
         </div>
-        <div class="col-6"></div>
+        <div class="col-6 text-right">
+          <a href="/admin/home">BackOffice</a>
+        </div>
       </div>
     </div>
   </header>

@@ -2164,8 +2164,12 @@ var staticRenderFns = [function () {
   }, [_c("div", {
     staticClass: "col-6"
   }, [_c("h1", [_vm._v("Boolpress")])]), _vm._v(" "), _c("div", {
-    staticClass: "col-6"
-  })])])]);
+    staticClass: "col-6 text-right"
+  }, [_c("a", {
+    attrs: {
+      href: "/admin/home"
+    }
+  }, [_vm._v("BackOffice")])])])])]);
 }];
 render._withStripped = true;
 
