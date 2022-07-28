@@ -1950,6 +1950,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     content: {
       type: String
+    },
+    slug: {
+      type: String
     }
   }
 });
@@ -2066,7 +2069,21 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "SinglePost"
+  name: "SinglePost",
+  data: function data() {
+    return {
+      post: null
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.get("/api/posts/".concat(this.$route.params.slug)).then(function (response) {
+      _this.post = response.data;
+    })["catch"](function (e) {
+      console.log(e);
+    });
+  }
 });
 
 /***/ }),
@@ -2125,7 +2142,8 @@ var render = function render() {
     }, [_c("base-card", {
       attrs: {
         title: post.title,
-        content: post.content
+        content: post.content,
+        slug: post.slug
       }
     })], 1);
   }), 0)])]);
@@ -2156,11 +2174,16 @@ var render = function render() {
     staticClass: "card"
   }, [_c("h3", [_vm._v(_vm._s(_vm.title))]), _vm._v(" "), _c("div", {
     staticClass: "card-content"
-  }, [_vm._v("\n    " + _vm._s(_vm.content) + "\n  ")]), _vm._v(" "), _c("a", {
+  }, [_vm._v("\n    " + _vm._s(_vm.content) + "\n  ")]), _vm._v(" "), _c("router-link", {
     attrs: {
-      href: "#"
+      to: {
+        name: "single-post",
+        params: {
+          slug: _vm.slug
+        }
+      }
     }
-  }, [_vm._v("Show More")])]);
+  }, [_vm._v("Show More")])], 1);
 };
 
 var staticRenderFns = [];
@@ -2385,17 +2408,12 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _vm._m(0);
-};
-
-var staticRenderFns = [function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
   return _c("div", {
     staticClass: "container"
-  }, [_c("h1", [_vm._v("DEbug")])]);
-}];
+  }, [_c("h1", [_vm._v(_vm._s(_vm.post.title))]), _vm._v(" "), _c("p", [_vm._v(_vm._s(_vm.post.content))]), _vm._v(" "), _c("h3", [_vm._v("Author: " + _vm._s(_vm.post.user.name))])]);
+};
+
+var staticRenderFns = [];
 render._withStripped = true;
 
 

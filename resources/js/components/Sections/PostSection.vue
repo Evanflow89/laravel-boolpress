@@ -3,7 +3,11 @@
     <div class="container">
       <ul class="d-flex flex-wrap">
         <li class="col-4" v-for="post in posts" key="post.slug">
-          <base-card :title="post.title" :content="post.content" />
+          <base-card
+            :title="post.title"
+            :content="post.content"
+            :slug="post.slug"
+          />
         </li>
       </ul>
     </div>
