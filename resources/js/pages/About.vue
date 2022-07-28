@@ -19,6 +19,7 @@
       minus? Numquam quaerat velit est illo cum cupiditate ea saepe laboriosam
       nostrum dolores minima repellat perspiciatis, rerum sapiente assumenda!
     </p>
+    <p><router-link :to="{ name: 'home' }">Back to Home</router-link></p>
   </div>
 </template>
 
