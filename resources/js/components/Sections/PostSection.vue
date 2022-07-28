@@ -1,9 +1,9 @@
 <template>
-  <section>
+  <section class="postSection">
     <div class="container">
-      <ul>
-        <li v-for="post in posts" key="post.slug">
-          {{ post.title }}
+      <ul class="d-flex flex-wrap">
+        <li class="col-4" v-for="post in posts" key="post.slug">
+          <base-card />
         </li>
       </ul>
     </div>
@@ -11,12 +11,16 @@
 </template>
 
 <script>
+import BaseCard from "../common/BaseCard.vue";
 export default {
   name: "PostSection",
   data() {
     return {
       posts: [],
     };
+  },
+  components: {
+    BaseCard,
   },
   created() {
     axios
@@ -31,5 +35,13 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+.postSection {
+  background-color: black;
+  color: greenyellow;
+
+  ul {
+    list-style: none;
+  }
+}
 </style>
