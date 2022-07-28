@@ -6,7 +6,15 @@
           <h1>Boolpress</h1>
         </div>
         <div class="col-6 text-right">
-          <a href="/admin/home">BackOffice</a>
+          <nav>
+            <ul>
+              <li><router-link :to="{ name: 'home' }">Home</router-link></li>
+              <li>
+                <router-link :to="{ name: 'about' }">About Us</router-link>
+              </li>
+              <li><a href="/admin/home">BackOffice</a></li>
+            </ul>
+          </nav>
         </div>
       </div>
     </div>
@@ -19,5 +27,8 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+ul {
+  list-style: none;
+}
 </style>
