@@ -1,5 +1,6 @@
 <template>
   <main>
+    <router-view></router-view>
     <post-section />
   </main>
 </template>
