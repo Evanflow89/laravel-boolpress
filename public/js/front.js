@@ -1943,7 +1943,15 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "BaseCard"
+  name: "BaseCard",
+  props: {
+    title: {
+      type: String
+    },
+    content: {
+      type: String
+    }
+  }
 });
 
 /***/ }),
@@ -2049,7 +2057,12 @@ var render = function render() {
     return _c("li", {
       key: "post.slug",
       staticClass: "col-4"
-    }, [_c("base-card")], 1);
+    }, [_c("base-card", {
+      attrs: {
+        title: post.title,
+        content: post.content
+      }
+    })], 1);
   }), 0)])]);
 };
 
@@ -2074,23 +2087,18 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _vm._m(0);
-};
-
-var staticRenderFns = [function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
   return _c("div", {
     staticClass: "card"
-  }, [_c("h3", [_vm._v("Post Title")]), _vm._v(" "), _c("div", {
+  }, [_c("h3", [_vm._v(_vm._s(_vm.title))]), _vm._v(" "), _c("div", {
     staticClass: "card-content"
-  }, [_vm._v("\n    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur\n    tempora eos officia animi laudantium facere ab totam sit sint voluptate\n    ipsum, neque reiciendis itaque, repellendus pariatur accusamus,\n    repudiandae voluptatibus illo.\n  ")]), _vm._v(" "), _c("a", {
+  }, [_vm._v("\n    " + _vm._s(_vm.content) + "\n  ")]), _vm._v(" "), _c("a", {
     attrs: {
       href: "#"
     }
   }, [_vm._v("Show More")])]);
-}];
+};
+
+var staticRenderFns = [];
 render._withStripped = true;
 
 
