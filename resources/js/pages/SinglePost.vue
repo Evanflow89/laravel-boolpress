@@ -3,7 +3,16 @@
     <h1>{{ post.title }}</h1>
     <p>{{ post.content }}</p>
     <h3>Author: {{ post.user.name }}</h3>
-    <p><router-link :to="{ name: 'home' }">Back to Home</router-link></p>
+    <div v-if="post.tags.length > 0">
+      <h1>Tags List</h1>
+      <ul>
+        <li v-for="tag in post.tags" :key="tag.id">{{ tag.name }}</li>
+      </ul>
+    </div>
+
+    <p class="mt-5">
+      <router-link :to="{ name: 'home' }">Back to Home</router-link>
+    </p>
   </div>
 </template>
 

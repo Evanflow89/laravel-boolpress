@@ -2552,7 +2552,13 @@ var render = function render() {
 
   return _c("div", {
     staticClass: "container"
-  }, [_c("h1", [_vm._v(_vm._s(_vm.post.title))]), _vm._v(" "), _c("p", [_vm._v(_vm._s(_vm.post.content))]), _vm._v(" "), _c("h3", [_vm._v("Author: " + _vm._s(_vm.post.user.name))]), _vm._v(" "), _c("p", [_c("router-link", {
+  }, [_c("h1", [_vm._v(_vm._s(_vm.post.title))]), _vm._v(" "), _c("p", [_vm._v(_vm._s(_vm.post.content))]), _vm._v(" "), _c("h3", [_vm._v("Author: " + _vm._s(_vm.post.user.name))]), _vm._v(" "), _vm.post.tags.length > 0 ? _c("div", [_c("h1", [_vm._v("Tags List")]), _vm._v(" "), _c("ul", _vm._l(_vm.post.tags, function (tag) {
+    return _c("li", {
+      key: tag.id
+    }, [_vm._v(_vm._s(tag.name))]);
+  }), 0)]) : _vm._e(), _vm._v(" "), _c("p", {
+    staticClass: "mt-5"
+  }, [_c("router-link", {
     attrs: {
       to: {
         name: "home"
