@@ -57,6 +57,7 @@ class PostController extends Controller
             'published' => 'sometimes|accepted',
             'category_id' => 'nullable|exists:categories,id',
             'tags' => 'nullable|exists:tags,id',
+            'image' => 'nullable|image|max:500',
         ]);
 
 
