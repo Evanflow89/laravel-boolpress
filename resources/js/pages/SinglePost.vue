@@ -3,6 +3,7 @@
     <h1>{{ post.title }}</h1>
     <p>{{ post.content }}</p>
     <h3>Author: {{ post.user.name }}</h3>
+    <p><router-link :to="{ name: 'home' }">Back to Home</router-link></p>
   </div>
 </template>
 
