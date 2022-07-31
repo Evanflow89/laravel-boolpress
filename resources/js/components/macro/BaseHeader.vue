@@ -12,6 +12,11 @@
               <li>
                 <router-link :to="{ name: 'about' }">About Us</router-link>
               </li>
+              <li>
+                <router-link :to="{ name: 'categories' }"
+                  >Categories</router-link
+                >
+              </li>
               <li><a href="/admin/home">BackOffice</a></li>
             </ul>
           </nav>

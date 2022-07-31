@@ -7,6 +7,8 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Page404 from "./pages/Page404";
 import SinglePost from "./pages/SinglePost";
+import Categories from "./pages/Categories";
+
 const router = new VueRouter({
     mode: "history",
     routes: [
@@ -19,6 +21,11 @@ const router = new VueRouter({
             path: "/about-us",
             name: "about",
             component: About
+        },
+        {
+            path: "/categories",
+            name: "categories",
+            component: Categories
         },
         {
             path: "/posts/:slug",
