@@ -4,9 +4,14 @@
     <p>{{ post.content }}</p>
     <h3>Author: {{ post.user.name }}</h3>
     <div v-if="post.tags.length > 0">
-      <h1>Tags List</h1>
+      <h4>Tags List</h4>
       <ul>
-        <li v-for="tag in post.tags" :key="tag.id">{{ tag.name }}</li>
+        <li v-for="tag in post.tags" :key="tag.id">
+          <router-link
+            :to="{ name: 'single-tag', params: { slug: tag.slug } }"
+            >{{ tag.name }}</router-link
+          >
+        </li>
       </ul>
     </div>
 

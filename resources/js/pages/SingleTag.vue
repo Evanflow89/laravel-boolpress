@@ -1,9 +1,9 @@
 <template>
-  <div v-if="category" class="container">
-    <h1>{{ category.name }}</h1>
-    <h4 v-if="category.posts.length > 0">Related Posts:</h4>
-    <ul v-if="category.posts.length > 0">
-      <li v-for="post in category.posts" key="post.id">
+  <div v-if="tag" class="container">
+    <h1>{{ tag.name }}</h1>
+    <h4 v-if="tag.posts.length > 0">Related Posts:</h4>
+    <ul v-if="tag.posts.length > 0">
+      <li v-for="post in tag.posts" key="post.id">
         <router-link
           :to="{ name: 'single-post', params: { slug: post.slug } }"
           >{{ post.title }}</router-link
@@ -16,17 +16,17 @@
 
 <script>
 export default {
-  name: "SingleCategory",
+  name: "SingleTag",
   data() {
     return {
-      category: null,
+      tag: null,
     };
   },
   created() {
     axios
-      .get(`/api/categories/${this.$route.params.slug}`)
+      .get(`/api/tags/${this.$route.params.slug}`)
       .then((response) => {
-        this.category = response.data;
+        this.tag = response.data;
       })
       .catch((e) => {
         console.log(e);
