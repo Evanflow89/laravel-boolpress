@@ -8,6 +8,7 @@ import About from "./pages/About";
 import Page404 from "./pages/Page404";
 import SinglePost from "./pages/SinglePost";
 import Categories from "./pages/Categories";
+import SingleCategory from "./pages/SingleCategory";
 
 const router = new VueRouter({
     mode: "history",
@@ -26,6 +27,11 @@ const router = new VueRouter({
             path: "/categories",
             name: "categories",
             component: Categories
+        },
+        {
+            path: "/category/:slug",
+            name: "single-category",
+            component: SingleCategory
         },
         {
             path: "/posts/:slug",

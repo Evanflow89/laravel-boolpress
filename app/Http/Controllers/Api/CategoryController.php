@@ -14,4 +14,11 @@ class CategoryController extends Controller
 
     return $categories;
     }
+
+    public function show($slug) 
+    {
+    $category = Category::where('slug', $slug)->with('posts')->first();    
+    
+    return $category;
+    }
 }
