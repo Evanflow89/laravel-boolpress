@@ -25,6 +25,14 @@
                         @enderror
                     </div>
                     <div class="form-group">
+                        <label for="image">Image</label>
+                        <input type="file" class="form-control-file @error('image') is-invalid @enderror" id="image" name="image" value="{{old('image')}}">
+                        @error('image')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
                         <label for="category">Category</label>
                         <select class="form-control" id="category" name="category_id">
                             <option value="">Select the Category</option>
