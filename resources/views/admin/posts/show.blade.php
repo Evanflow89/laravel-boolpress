@@ -12,6 +12,12 @@
         </div>
         <div class="card-body">
             <div>{{$post->content}}</div>
+@if ($post->image)
+<div class="mb-3">
+    <img src="{{asset("storage/{post->image}")}}" alt="">
+</div>
+@endif
+            
             <a class="btn btn-primary mt-3" href="{{route('admin.posts.index')}}">Back</a>
             @if (count($post->tags) > 0)
             <div class="mt-3">
