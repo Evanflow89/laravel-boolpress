@@ -9,6 +9,7 @@ use App\Category;
 use App\Tag;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -69,6 +70,10 @@ class PostController extends Controller
         $newPost->slug = $this->getSlug($data['title']);
 
         $newPost->published = isset($data['published']); // true o false
+
+        if(isset($data['image'])) {
+            $newPost->image = Storage::put('uploads', $data['image']);
+        }
         $newPost->user_id = Auth::id();
         $newPost->save();
 
