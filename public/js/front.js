@@ -2421,7 +2421,16 @@ var render = function render() {
   }, [_c("h1", [_vm._v("Categories")]), _vm._v(" "), _vm.categories.length > 0 ? _c("ul", _vm._l(_vm.categories, function (category) {
     return _c("li", {
       key: category.id
-    }, [_vm._v("\n      " + _vm._s(category.name) + "\n    ")]);
+    }, [_c("router-link", {
+      attrs: {
+        to: {
+          name: "single-category",
+          params: {
+            slug: category.slug
+          }
+        }
+      }
+    }, [_vm._v(_vm._s(category.name))])], 1);
   }), 0) : _c("h2", [_vm._v("No Categories Available")])]);
 };
 
@@ -2504,11 +2513,20 @@ var render = function render() {
 
   return _c("div", {
     staticClass: "container"
-  }, [_c("h1", [_vm._v(_vm._s(_vm.category.name))]), _vm._v(" "), _c("h4", [_vm._v("Related Posts:")]), _vm._v(" "), _c("ul", _vm._l(_vm.category.posts, function (post) {
+  }, [_c("h1", [_vm._v(_vm._s(_vm.category.name))]), _vm._v(" "), _vm.category.posts.length > 0 ? _c("h4", [_vm._v("Related Posts:")]) : _vm._e(), _vm._v(" "), _vm.category.posts.length > 0 ? _c("ul", _vm._l(_vm.category.posts, function (post) {
     return _c("li", {
       key: "post.id"
-    }, [_vm._v(_vm._s(post.title))]);
-  }), 0)]);
+    }, [_c("router-link", {
+      attrs: {
+        to: {
+          name: "single-post",
+          params: {
+            slug: post.slug
+          }
+        }
+      }
+    }, [_vm._v(_vm._s(post.title))])], 1);
+  }), 0) : _c("h4", [_vm._v("No Posts Related")])]);
 };
 
 var staticRenderFns = [];

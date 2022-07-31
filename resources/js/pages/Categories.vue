@@ -3,7 +3,10 @@
     <h1>Categories</h1>
     <ul v-if="categories.length > 0">
       <li v-for="category in categories" :key="category.id">
-        {{ category.name }}
+        <router-link
+          :to="{ name: 'single-category', params: { slug: category.slug } }"
+          >{{ category.name }}</router-link
+        >
       </li>
     </ul>
     <h2 v-else>No Categories Available</h2>
