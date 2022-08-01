@@ -161,6 +161,10 @@ class PostController extends Controller
         if ($post->user_id !== Auth::id()) {
             abort(403);
         }
+
+        if ($post->image) {
+            Storage::delete($post->image);
+        }
         $post->delete();
         return redirect()->route('admin.posts.index');
     }

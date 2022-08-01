@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <h1>{{ post.title }}</h1>
+    <img :src="post.image_path" :alt="post.title" />
     <p>{{ post.content }}</p>
     <h3>Author: {{ post.user.name }}</h3>
     <div v-if="post.tags.length > 0">

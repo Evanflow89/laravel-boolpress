@@ -2581,7 +2581,12 @@ var render = function render() {
 
   return _c("div", {
     staticClass: "container"
-  }, [_c("h1", [_vm._v(_vm._s(_vm.post.title))]), _vm._v(" "), _c("p", [_vm._v(_vm._s(_vm.post.content))]), _vm._v(" "), _c("h3", [_vm._v("Author: " + _vm._s(_vm.post.user.name))]), _vm._v(" "), _vm.post.tags.length > 0 ? _c("div", [_c("h4", [_vm._v("Tags List")]), _vm._v(" "), _c("ul", _vm._l(_vm.post.tags, function (tag) {
+  }, [_c("h1", [_vm._v(_vm._s(_vm.post.title))]), _vm._v(" "), _c("img", {
+    attrs: {
+      src: _vm.post.image_path,
+      alt: _vm.post.title
+    }
+  }), _vm._v(" "), _c("p", [_vm._v(_vm._s(_vm.post.content))]), _vm._v(" "), _c("h3", [_vm._v("Author: " + _vm._s(_vm.post.user.name))]), _vm._v(" "), _vm.post.tags.length > 0 ? _c("div", [_c("h4", [_vm._v("Tags List")]), _vm._v(" "), _c("ul", _vm._l(_vm.post.tags, function (tag) {
     return _c("li", {
       key: tag.id
     }, [_c("router-link", {
