@@ -141,6 +141,14 @@ class PostController extends Controller
         if( $post->title != $data['title'] ) {
             $post->slug = $this->getSlug($data['title']);
         }
+
+        if(isset($data['image'])) {
+            if ($post->image) {
+                Storage::delete($post->image);
+            }
+            $post->image = Storage::put('uploads', $data['image']);
+        }
+
         $post->fill($data);
 
         $post->published = isset($data['published']); 
