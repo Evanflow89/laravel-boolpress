@@ -2599,7 +2599,7 @@ var render = function render() {
         }
       }
     }, [_vm._v(_vm._s(tag.name))])], 1);
-  }), 0)]) : _vm._e(), _vm._v(" "), _c("p", {
+  }), 0)]) : _vm._e(), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("p", {
     staticClass: "mt-5"
   }, [_c("router-link", {
     attrs: {
@@ -2610,7 +2610,42 @@ var render = function render() {
   }, [_vm._v("Back to Home")])], 1)]);
 };
 
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "mb-2"
+  }, [_c("h3", [_vm._v("Leave a Comment")]), _vm._v(" "), _c("form", {
+    attrs: {
+      action: ""
+    }
+  }, [_c("div", {
+    staticClass: "mb-1"
+  }, [_c("input", {
+    attrs: {
+      type: "text",
+      name: "name",
+      placeholder: "Insert your name"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "mb-1"
+  }, [_c("textarea", {
+    attrs: {
+      name: "content",
+      id: "content",
+      cols: "30",
+      rows: "10",
+      placeholder: "Insert your Comment Here!"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "mb-1"
+  }, [_c("button", {
+    attrs: {
+      type: "submit"
+    }
+  }, [_vm._v("Add Comment")])])])]);
+}];
 render._withStripped = true;
 
 

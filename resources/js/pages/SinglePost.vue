@@ -15,7 +15,26 @@
         </li>
       </ul>
     </div>
-
+    <div class="mb-2">
+      <h3>Leave a Comment</h3>
+      <form action="">
+        <div class="mb-1">
+          <input type="text" name="name" placeholder="Insert your name" />
+        </div>
+        <div class="mb-1">
+          <textarea
+            name="content"
+            id="content"
+            cols="30"
+            rows="10"
+            placeholder="Insert your Comment Here!"
+          ></textarea>
+        </div>
+        <div class="mb-1">
+          <button type="submit">Add Comment</button>
+        </div>
+      </form>
+    </div>
     <p class="mt-5">
       <router-link :to="{ name: 'home' }">Back to Home</router-link>
     </p>
