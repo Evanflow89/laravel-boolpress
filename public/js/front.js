@@ -2130,7 +2130,11 @@ __webpack_require__.r(__webpack_exports__);
   name: "SinglePost",
   data: function data() {
     return {
-      post: null
+      post: null,
+      formData: {
+        name: "",
+        content: ""
+      }
     };
   },
   created: function created() {
@@ -2141,6 +2145,11 @@ __webpack_require__.r(__webpack_exports__);
     })["catch"](function (e) {
       console.log(e);
     });
+  },
+  methods: {
+    addComment: function addComment() {
+      console.log(this.formData);
+    }
   }
 });
 
@@ -2599,7 +2608,66 @@ var render = function render() {
         }
       }
     }, [_vm._v(_vm._s(tag.name))])], 1);
-  }), 0)]) : _vm._e(), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("p", {
+  }), 0)]) : _vm._e(), _vm._v(" "), _c("div", {
+    staticClass: "mb-2"
+  }, [_c("h3", [_vm._v("Leave a Comment")]), _vm._v(" "), _c("form", {
+    on: {
+      submit: function submit($event) {
+        $event.preventDefault();
+        return _vm.addComment();
+      }
+    }
+  }, [_c("div", {
+    staticClass: "mb-1"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.formData.name,
+      expression: "formData.name"
+    }],
+    attrs: {
+      type: "text",
+      name: "name",
+      placeholder: "Insert your name"
+    },
+    domProps: {
+      value: _vm.formData.name
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+
+        _vm.$set(_vm.formData, "name", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "mb-1"
+  }, [_c("textarea", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.formData.content,
+      expression: "formData.content"
+    }],
+    attrs: {
+      name: "content",
+      id: "content",
+      cols: "30",
+      rows: "10",
+      placeholder: "Insert your Comment Here!"
+    },
+    domProps: {
+      value: _vm.formData.content
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+
+        _vm.$set(_vm.formData, "content", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _vm._m(0)])]), _vm._v(" "), _c("p", {
     staticClass: "mt-5"
   }, [_c("router-link", {
     attrs: {
@@ -2615,36 +2683,12 @@ var staticRenderFns = [function () {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "mb-2"
-  }, [_c("h3", [_vm._v("Leave a Comment")]), _vm._v(" "), _c("form", {
-    attrs: {
-      action: ""
-    }
-  }, [_c("div", {
-    staticClass: "mb-1"
-  }, [_c("input", {
-    attrs: {
-      type: "text",
-      name: "name",
-      placeholder: "Insert your name"
-    }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "mb-1"
-  }, [_c("textarea", {
-    attrs: {
-      name: "content",
-      id: "content",
-      cols: "30",
-      rows: "10",
-      placeholder: "Insert your Comment Here!"
-    }
-  })]), _vm._v(" "), _c("div", {
     staticClass: "mb-1"
   }, [_c("button", {
     attrs: {
       type: "submit"
     }
-  }, [_vm._v("Add Comment")])])])]);
+  }, [_vm._v("Add Comment")])]);
 }];
 render._withStripped = true;
 

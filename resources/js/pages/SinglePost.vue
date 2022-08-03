@@ -17,9 +17,14 @@
     </div>
     <div class="mb-2">
       <h3>Leave a Comment</h3>
-      <form action="">
+      <form @submit.prevent="addComment()">
         <div class="mb-1">
-          <input type="text" name="name" placeholder="Insert your name" />
+          <input
+            type="text"
+            name="name"
+            placeholder="Insert your name"
+            v-model="formData.name"
+          />
         </div>
         <div class="mb-1">
           <textarea
@@ -28,6 +33,7 @@
             cols="30"
             rows="10"
             placeholder="Insert your Comment Here!"
+            v-model="formData.content"
           ></textarea>
         </div>
         <div class="mb-1">
@@ -47,6 +53,10 @@ export default {
   data() {
     return {
       post: null,
+      formData: {
+        name: "",
+        content: "",
+      },
     };
   },
   created() {
@@ -58,6 +68,11 @@ export default {
       .catch((e) => {
         console.log(e);
       });
+  },
+  methods: {
+    addComment() {
+      console.log(this.formData);
+    },
   },
 };
 </script>
