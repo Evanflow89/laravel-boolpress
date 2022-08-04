@@ -24,4 +24,4 @@ Route::get('categories/{slug}', 'Api\CategoryController@show');
 
 Route::get('tags/{slug}', 'Api\TagController@show');
 
-Route::post('comments/{post_id}', 'Api\CommentController');
+Route::post('comments/{post_id}', 'Api\CommentController@store');
