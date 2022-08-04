@@ -2148,7 +2148,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     addComment: function addComment() {
-      console.log(this.formData);
+      axios.post("/api/comments/".concat(this.post.id), this.formData).then(function (response) {
+        console.log(response);
+      });
     }
   }
 });

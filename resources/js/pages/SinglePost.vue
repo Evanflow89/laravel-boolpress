@@ -71,7 +71,11 @@ export default {
   },
   methods: {
     addComment() {
-      console.log(this.formData);
+      axios
+        .post(`/api/comments/${this.post.id}`, this.formData)
+        .then((response) => {
+          console.log(response);
+        });
     },
   },
 };
