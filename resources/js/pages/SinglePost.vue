@@ -25,6 +25,9 @@
             placeholder="Insert your name"
             v-model="formData.name"
           />
+          <ul v-if="errors.name">
+            <li v-for="(err, index) in errors.name" :key="index">{{ err }}</li>
+          </ul>
         </div>
         <div class="mb-1">
           <textarea
@@ -35,6 +38,11 @@
             placeholder="Insert your Comment Here!"
             v-model="formData.content"
           ></textarea>
+          <ul v-if="errors.content">
+            <li v-for="(err, index) in errors.content" :key="index">
+              {{ err }}
+            </li>
+          </ul>
         </div>
         <div class="mb-1">
           <button type="submit">Add Comment</button>
@@ -57,6 +65,7 @@ export default {
         name: "",
         content: "",
       },
+      errors: {},
     };
   },
   created() {
@@ -74,7 +83,10 @@ export default {
       axios
         .post(`/api/comments/${this.post.id}`, this.formData)
         .then((response) => {
-          console.log(response);
+          console.log(response.data.data);
+        })
+        .catch((error) => {
+          this.errors = error.response.data.errors;
         });
     },
   },

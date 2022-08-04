@@ -2134,7 +2134,8 @@ __webpack_require__.r(__webpack_exports__);
       formData: {
         name: "",
         content: ""
-      }
+      },
+      errors: {}
     };
   },
   created: function created() {
@@ -2148,8 +2149,12 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     addComment: function addComment() {
+      var _this2 = this;
+
       axios.post("/api/comments/".concat(this.post.id), this.formData).then(function (response) {
-        console.log(response);
+        console.log(response.data.data);
+      })["catch"](function (error) {
+        _this2.errors = error.response.data.errors;
       });
     }
   }
@@ -2643,7 +2648,11 @@ var render = function render() {
         _vm.$set(_vm.formData, "name", $event.target.value);
       }
     }
-  })]), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), _vm.errors.name ? _c("ul", _vm._l(_vm.errors.name, function (err, index) {
+    return _c("li", {
+      key: index
+    }, [_vm._v(_vm._s(err))]);
+  }), 0) : _vm._e()]), _vm._v(" "), _c("div", {
     staticClass: "mb-1"
   }, [_c("textarea", {
     directives: [{
@@ -2669,7 +2678,11 @@ var render = function render() {
         _vm.$set(_vm.formData, "content", $event.target.value);
       }
     }
-  })]), _vm._v(" "), _vm._m(0)])]), _vm._v(" "), _c("p", {
+  }), _vm._v(" "), _vm.errors.content ? _c("ul", _vm._l(_vm.errors.content, function (err, index) {
+    return _c("li", {
+      key: index
+    }, [_vm._v("\n            " + _vm._s(err) + "\n          ")]);
+  }), 0) : _vm._e()]), _vm._v(" "), _vm._m(0)])]), _vm._v(" "), _c("p", {
     staticClass: "mt-5"
   }, [_c("router-link", {
     attrs: {

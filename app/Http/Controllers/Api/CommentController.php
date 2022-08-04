@@ -27,5 +27,7 @@ class CommentController extends Controller
             $newComment->content = $data['content'];
             $newComment->save();
              //restituisco una risposta Json
+
+             return $newComment;
     }
 }
