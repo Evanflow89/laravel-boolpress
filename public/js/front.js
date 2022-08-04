@@ -2135,6 +2135,7 @@ __webpack_require__.r(__webpack_exports__);
         name: "",
         content: ""
       },
+      commentSent: false,
       errors: {}
     };
   },
@@ -2152,7 +2153,10 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       axios.post("/api/comments/".concat(this.post.id), this.formData).then(function (response) {
-        console.log(response.data.data);
+        // console.log(response.data.data);
+        _this2.commentSent = true;
+        _this2.formData.name = "";
+        _this2.formData.content = "";
       })["catch"](function (error) {
         _this2.errors = error.response.data.errors;
       });
@@ -2682,7 +2686,13 @@ var render = function render() {
     return _c("li", {
       key: index
     }, [_vm._v("\n            " + _vm._s(err) + "\n          ")]);
-  }), 0) : _vm._e()]), _vm._v(" "), _vm._m(0)])]), _vm._v(" "), _c("p", {
+  }), 0) : _vm._e()]), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm.commentSent ? _c("div", {
+    staticClass: "mt-3",
+    staticStyle: {
+      color: "green",
+      border: "1px solid green"
+    }
+  }, [_vm._v("\n        Your Comment is Under Approvation\n      ")]) : _vm._e()])]), _vm._v(" "), _c("p", {
     staticClass: "mt-5"
   }, [_c("router-link", {
     attrs: {

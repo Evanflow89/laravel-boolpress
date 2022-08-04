@@ -47,6 +47,13 @@
         <div class="mb-1">
           <button type="submit">Add Comment</button>
         </div>
+        <div
+          v-if="commentSent"
+          class="mt-3"
+          style="color: green; border: 1px solid green"
+        >
+          Your Comment is Under Approvation
+        </div>
       </form>
     </div>
     <p class="mt-5">
@@ -65,6 +72,7 @@ export default {
         name: "",
         content: "",
       },
+      commentSent: false,
       errors: {},
     };
   },
@@ -83,7 +91,10 @@ export default {
       axios
         .post(`/api/comments/${this.post.id}`, this.formData)
         .then((response) => {
-          console.log(response.data.data);
+          // console.log(response.data.data);
+          this.commentSent = true;
+          this.formData.name = "";
+          this.formData.content = "";
         })
         .catch((error) => {
           this.errors = error.response.data.errors;
