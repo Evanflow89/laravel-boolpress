@@ -8,7 +8,7 @@ use App\Comment;
 
 class CommentController extends Controller
 {
-    public function store(Request $request, $post_id, )
+    public function store(Request $request, $post_id)
     {
              //prendo i dati dalla request
             $request->validate([
@@ -16,7 +16,7 @@ class CommentController extends Controller
                 'content' => 'required|string',
             ]);
 
-            $data =$request->all();
+            $data = $request->all();
             $data['post_id'] = $post_id;
              
 
