@@ -27,12 +27,12 @@
                     <td>{{$comment->content}}</td>
                     
                     <td>
-                     <form action="" method="POST">
+                     <form action="{{route('admin.comments.update', $comment->id)}}" method="POST">
                         @csrf
                         @method('PATCH')
                         <button type="submit" class="btn btn-success">Approve</button>
                      </form>
-                      <form action="" method="POST">
+                      <form action="{{route('admin.comments.destroy', $comment->id)}}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Delete</button>

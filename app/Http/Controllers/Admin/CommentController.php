@@ -15,13 +15,19 @@ class CommentController extends Controller
         return view('admin.comments.index', compact('comments'));
     }
 
-    public function update()
+    public function update(Comment $comment)
     {
+        $comment->is_approved = true;
 
+        $comment->save();
+
+        return redirect()->route('admin.comments.index');
     }
 
-    public function destroy()
+    public function destroy(Comment $comment)
     {
+        $comment->delete();
 
+        return redirect()->route('admin.comments.index');
     }
 }

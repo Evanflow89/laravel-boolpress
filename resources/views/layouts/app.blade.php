@@ -36,6 +36,7 @@
 <li class="pr-2"><a href="{{route('admin.posts.index')}}">Posts</a></li>
 <li class="pr-2"><a href="{{route('admin.categories.index')}}">Categories</a></li>
 <li class="pr-2"><a href="{{route('admin.tags.index')}}">Tags</a></li>
+<li class="pr-2"><a href="{{route('admin.comments.index')}}">Comments</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
