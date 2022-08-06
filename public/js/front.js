@@ -2619,6 +2619,12 @@ var render = function render() {
         }
       }
     }, [_vm._v(_vm._s(tag.name))])], 1);
+  }), 0)]) : _vm._e(), _vm._v(" "), _vm.post.comments.length > 0 ? _c("div", {
+    staticClass: "mt-3"
+  }, [_c("h4", [_vm._v("Comments")]), _vm._v(" "), _c("ul", _vm._l(_vm.post.comments, function (comment) {
+    return _c("li", {
+      key: comment.id
+    }, [_c("h5", [_vm._v(_vm._s(comment.name))]), _vm._v(" "), _c("div", [_vm._v(_vm._s(comment.content))])]);
   }), 0)]) : _vm._e(), _vm._v(" "), _c("div", {
     staticClass: "mb-2"
   }, [_c("h3", [_vm._v("Leave a Comment")]), _vm._v(" "), _c("form", {

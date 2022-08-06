@@ -15,6 +15,15 @@
         </li>
       </ul>
     </div>
+    <div class="mt-3" v-if="post.comments.length > 0">
+      <h4>Comments</h4>
+      <ul>
+        <li v-for="comment in post.comments" :key="comment.id">
+          <h5>{{ comment.name }}</h5>
+          <div>{{ comment.content }}</div>
+        </li>
+      </ul>
+    </div>
     <div class="mb-2">
       <h3>Leave a Comment</h3>
       <form @submit.prevent="addComment()">
