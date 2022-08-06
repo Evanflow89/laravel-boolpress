@@ -28,7 +28,9 @@ Route::middleware('auth')
     Route::resource('tags', 'TagController');
     
 
-    Route::get('comments', 'CommentController@index');
+    Route::get('comments', 'CommentController@index')->name('comments.index');
+    Route::patch('comments/{comment}', 'CommentController@update')->name('comments.update');
+    Route::delete('comments/{comment}', 'CommentController@destroy')->name('comments.destroy');
 });
 
 Route::get("{any?}", function() {
