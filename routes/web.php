@@ -26,6 +26,9 @@ Route::middleware('auth')
     Route::resource('posts', 'PostController');
     Route::resource('categories', 'CategoryController');
     Route::resource('tags', 'TagController');
+    
+
+    Route::get('comments', 'CommentController@index');
 });
 
 Route::get("{any?}", function() {
